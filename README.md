@@ -30,10 +30,9 @@ To set up and run this project locally, follow these steps:
 
 2.  **Clone the Repository (if applicable):**
     ```bash
-    git clone <repository_url>
-    cd car-dealership-api
+    git clone https://github.com/MohammadFareedd/cars_store.git
+    cd Back_End/demo1
     ```
-    *(Note: Replace `<repository_url>` with the actual URL if this project is hosted on a Git repository.)*
 
 3.  **Build the Project:**
     Navigate to the project's root directory (where `pom.xml` is located) and run the following Maven command:
