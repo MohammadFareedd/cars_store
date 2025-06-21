@@ -14,15 +14,16 @@ import java.util.List;
 public class CarService {
     @Autowired
     private CarRepository carRepository;
-    public Page<Car> getCarsByBrandOrAll(String brandName, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
 
-        if (brandName.equalsIgnoreCase("all")) {
-            return carRepository.findAll(pageable);
-        } else {
-            return carRepository.findCarsByBrandName(brandName, pageable);
-        }
-    }
+//    public Page<Car> getCarsByBrandOrAll(String brandName, int page, int size) {
+//        Pageable pageable = PageRequest.of(page, size);
+//
+//        if (brandName.equalsIgnoreCase("all")) {
+//            return carRepository.findAll(pageable);
+//        } else {
+//            return carRepository.findCarsByBrandName(brandName, pageable);
+//        }
+    //}
 
     public Page<Car> searchCars(String brandName, String description, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);

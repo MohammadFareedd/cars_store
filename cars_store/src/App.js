@@ -19,7 +19,7 @@ function App() {
         };
 
         const getAllCars = async () => {
-            const allCarsPage = await fetchCarsByBrand("all", 0);
+            const allCarsPage = await searchCars("all", "", 0);
             setSelectedBrand(allCarsPage.content);
             setTotalPages(allCarsPage.totalPages);
             setCurrentBrand("all");
@@ -59,7 +59,7 @@ function App() {
             setCurrentBrand(brand);
         } else {
             console.log("Fetching cars for brand:", brand);
-            const carsPage = await fetchCarsByBrand(brand, 0);
+            const carsPage = await searchCars(brand, "", 0);
             setSelectedBrand(carsPage.content);
             setTotalPages(carsPage.totalPages);
             setCurrentPage(0);
@@ -82,7 +82,7 @@ function App() {
             setSelectedBrand(carsPage.content);
             setCurrentPage(page);
         } else {
-            const carsPage = await fetchCarsByBrand(currentBrand, page);
+            const carsPage = await searchCars(currentBrand,searchTerm, page);
             setSelectedBrand(carsPage.content);
             setCurrentPage(page);
         }
