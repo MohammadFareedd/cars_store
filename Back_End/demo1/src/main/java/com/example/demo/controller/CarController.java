@@ -17,7 +17,7 @@ public class CarController {
     @Autowired
     private CarService carService;
 
-    // Keep existing brand filtering
+    // brand filtering
     @GetMapping("/brand/{brandName}")
     public ResponseEntity<Page<Car>> getCars(
             @PathVariable String brandName,
@@ -28,7 +28,7 @@ public class CarController {
         return ResponseEntity.ok(cars);
     }
 
-    // Add search endpoint (brand + description)
+    //  search endpoint (brand + description)
     @GetMapping("/search")
     public ResponseEntity<Page<Car>> searchCars(
             @RequestParam String brand,

@@ -41,7 +41,7 @@ function App() {
         return dataCars;
     };
 
-    const searchCars = async (brand, description, page = 0, size = 10) => {
+    const searchCars = async (brand, description, page = 0, size = 9) => {
       console.log("Searching cars with brand:", brand, "and description:", description, "on page:", page);
 
         const res = await fetch(`http://localhost:8080/cars/search?brand=${brand}&description=${description}&page=${page}&size=${size}`);
@@ -89,31 +89,35 @@ function App() {
     };
 
     return (
-        <div className="App">
-            <SideBar
-                Data={SideBarData}
-                onSelectBrand={onSelectBrand}
-            />
+     <div className="App">
+    <SideBar
+        Data={SideBarData}
+        onSelectBrand={onSelectBrand}
+    />
+    <div className="Content">
+        <div className="SearchContainer">
             <SearchBar
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onSearch={onSearch}
             />
-            <Cars
-                cars={selectedBrand}
-            />
-
-            {/* Pagination Controls */}
-            <div className="pagination">
-                <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 0}>
-                    Previous
-                </button>
-                <span> Page {currentPage + 1} of {totalPages} </span>
-                <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage + 1 >= totalPages}>
-                    Next
-                </button>
-            </div>
         </div>
+
+        <Cars cars={selectedBrand} />
+
+        {/* Pagination integrated below the cars */}
+        <div className="pagination-controls">
+            <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 0}>
+                Previous
+            </button>
+            <span>Page {currentPage + 1} of {totalPages}</span>
+            <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage + 1 >= totalPages}>
+                Next
+            </button>
+        </div>
+    </div>
+</div>
+
     );
 }
 

@@ -20,7 +20,7 @@ public class CarService {
         if (brandName.equalsIgnoreCase("all")) {
             return carRepository.findAll(pageable);
         } else {
-            return carRepository.findByBrand_Name(brandName, pageable);
+            return carRepository.findCarsByBrandName(brandName, pageable);
         }
     }
 

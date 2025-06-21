@@ -1,10 +1,9 @@
+/* Main App Layout */
 .App {
-width: 100vw;
-height: 100vh;
-display: flex;
-  flex-direction: row;
-  height: 100vh;
-  overflow: hidden;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 body {
@@ -30,11 +29,12 @@ padding: 0;
   overflow-y: auto;
 }
 
-.Sidebar {
-width: 300px;
-height: 100%;
-background-color: #2F4050;
 
+/* Sidebar Styling */
+.Sidebar {
+    width: 300px;
+    height: 100%;
+    background-color: #2F4050;
 }
 .SidebarList {
   height: auto;
@@ -57,86 +57,106 @@ background-color: #2F4050;
   background-color: #293846;
   cursor: pointer;
 }
+
+
+
+
+
+
+/* Content Layout (Search + Cars) */
+.Content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fixed Search Bar at the top of Content */
+.SearchContainer {
+    width: 100%;
+    padding: 20px;
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+/* Cars Section */
 .cars {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 110px 20px 20px; /* Increased top padding to 60px */
-  background-color: #f7f7f7;
-  overflow-y: auto;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    overflow-y: auto;
 }
 
+/* Car Card Styling */
 .car-card {
-  border: 1px solid hsl(0, 0%, 80%);
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-/* Remove the margin from car-card since we're using gap in the grid */
-.car-card {
-  margin: 0;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .car-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-
-.search-bar {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  background-color: #f7f7f7; /* Match cars background */
-  padding: 10px;
-  border-radius: 0 0 0 10px; /* Optional: rounded corner on bottom left */
-}
-/* Style for the search input */
+/* Search Bar Input Styling */
 .search-bar input {
-  padding: 8px 12px;
-  font-size: 14px;
-  width: 200px; /* Adjust width as needed */
-  border-radius: 20px; /* Rounded corners */
-  border: 1px solid #ccc;
-  outline: none;
-  transition: all 0.3s ease;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 200px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
 .search-bar input:focus {
-  border-color: #2F4050;
-  box-shadow: 0 0 5px rgba(47, 64, 80, 0.3);
-  width: 220px; /* Expands slightly when focused */
+    border-color: #2F4050;
+    box-shadow: 0 0 5px rgba(47, 64, 80, 0.3);
+    width: 220px;
 }
+
+/* Pagination Controls Positioned Inside Content */
 .pagination-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0; /* Space around the buttons */
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd; /* Optional: separate visually from cars */
 }
+
 .pagination-controls button {
-  padding: 8px 12px;
-  border: none;
-  background-color: #2F4050;
-  color: white;
-  cursor: pointer;
-  border-radius: 4px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #2F4050;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: #1c2833;
+}
+
 .pagination-controls button:disabled {
-  background-color: #999;
-  cursor: not-allowed;
+    background-color: #999;
+    cursor: not-allowed;
 }
-
-
 
 
 
