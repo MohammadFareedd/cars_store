@@ -73,35 +73,6 @@ To set up and run this project locally, follow these steps:
 
 ### Cars
 
-*   **GET /cars/brand/{brandName}**
-    *   **Description:** Retrieves a paginated list of cars by brand name. If `brandName` is "all", it retrieves all cars.
-    *   **Parameters:**
-        *   `brandName` (Path Variable): The name of the brand (e.g., "Toyota", "all").
-        *   `page` (Query Parameter, optional): Page number (default: 0).
-        *   `size` (Query Parameter, optional): Number of items per page (default: 9).
-    *   **Example:** `GET /cars/brand/Toyota?page=0&size=5`
-    *   **Response:**
-        ```json
-        {
-            "content": [
-                {
-                    "id": 101,
-                    "title": "Camry",
-                    "description": "Mid-size sedan",
-                    "imagePath": "/images/camry.jpg"
-                }
-            ],
-            "pageable": { ... },
-            "last": true,
-            "totalPages": 1,
-            "totalElements": 1,
-            "size": 5,
-            "number": 0,
-            "first": true,
-            "numberOfElements": 1,
-            "empty": false
-        }
-        ```
 
 *   **GET /cars/search**
     *   **Description:** Searches for cars by brand and description with pagination.
